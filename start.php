@@ -4,8 +4,10 @@
 $error = '';
 $name = '';
 $email = '';
-$subject = '';
-$message = '';
+$contact = '';
+$organisation = '';
+$designation = '';
+$score = '';
 
 function clean_text($string)
 {
@@ -17,18 +19,18 @@ function clean_text($string)
 
 if(isset($_POST["submit"]))
 {
- if(empty($_POST["name"]))
- {
-  $error .= '<p><label class="text-danger">Please Enter your Name</label></p>';
- }
- else
- {
-  $name = clean_text($_POST["name"]);
-  if(!preg_match("/^[a-zA-Z ]*$/",$name))
-  {
-   $error .= '<p><label class="text-danger">Only letters and white space allowed</label></p>';
-  }
- }
+    if(empty($_POST["name"]))
+    {
+     $error .= '<p><label class="text-danger">Please Enter your Designation</label></p>';
+    }
+    else
+    {
+     $name = clean_text($_POST["name"]);
+     if(!preg_match("/^[a-zA-Z ]*$/",$name))
+     {
+      $error .= '<p><label class="text-danger">Only letters and white space allowed</label></p>';
+     }
+    }
  if(empty($_POST["email"]))
  {
   $error .= '<p><label class="text-danger">Please Enter your Email</label></p>';
@@ -41,21 +43,37 @@ if(isset($_POST["submit"]))
    $error .= '<p><label class="text-danger">Invalid email format</label></p>';
   }
  }
- if(empty($_POST["subject"]))
+ if(empty($_POST["contact"]))
  {
-  $error .= '<p><label class="text-danger">Subject is required</label></p>';
+  $error .= '<p><label class="text-danger">Contact number is required</label></p>';
  }
  else
  {
-  $subject = clean_text($_POST["subject"]);
+  $contact = clean_text($_POST["contact"]);
  }
- if(empty($_POST["message"]))
+ if(empty($_POST["score"]))
  {
-  $error .= '<p><label class="text-danger">Message is required</label></p>';
+  $error .= '<p><label class="text-danger">Contact number is required</label></p>';
  }
  else
  {
-  $message = clean_text($_POST["message"]);
+  $score = clean_text($_POST["score"]);
+ }
+ if(empty($_POST["organisation"]))
+ {
+  $error .= '<p><label class="text-danger">Please enter your Organisation</label></p>';
+ }
+ else
+ {
+  $organisation = clean_text($_POST["organisation"]);
+ }
+ if(empty($_POST["designation"]))
+ {
+  $error .= '<p><label class="text-danger">Please enter your Organisation</label></p>';
+ }
+ else
+ {
+  $designation = clean_text($_POST["designation"]);
  }
 
  if($error == '')
@@ -70,15 +88,19 @@ if(isset($_POST["submit"]))
    'sr_no'  => $no_rows,
    'name'  => $name,
    'email'  => $email,
-   'subject' => $subject,
-   'message' => $message
+   'contact' => $contact,
+   'organisation' => $organisation,
+   'designation' => $designation,
+   'score' => $score
   );
   fputcsv($file_open, $form_data);
   $error = '<label class="text-success">Thank you for contacting us</label>';
   $name = '';
   $email = '';
-  $subject = '';
-  $message = '';
+  $contact = '';
+  $organisation = '';
+  $designation = '';
+  $score = '';
  }
 }
 
@@ -88,8 +110,7 @@ if(isset($_POST["submit"]))
  <head>
   <title>How to Store Form data in CSV File using PHP</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://shivendrasaurav.github.io/MARS/mars.css" />
  </head>
  <body>
   <br />
@@ -110,13 +131,19 @@ if(isset($_POST["submit"]))
       <input type="text" name="email" class="form-control" placeholder="Enter Email" value="<?php echo $email; ?>" />
      </div>
      <div class="form-group">
-      <label>Enter Subject</label>
-      <input type="text" name="subject" class="form-control" placeholder="Enter Subject" value="<?php echo $subject; ?>" />
+      <label>Enter contact</label>
+      <input max=11111111111 min=9999999999 type="number" name="contact" class="form-control" placeholder="Enter contact" value="<?php echo $contact; ?>" />
      </div>
-     <div class="form-group">
-      <label>Enter Message</label>
-      <textarea name="message" class="form-control" placeholder="Enter Message"><?php echo $message; ?></textarea>
+     <label>Enter Organisation</label>
+      <input type="text" name="organisation" placeholder="Enter Organisation Name" class="form-control" value="<?php echo $organisation; ?>" />
      </div>
+     <label>Enter Designation</label>
+      <input type="text" name="designation" placeholder="Enter Your Designation" class="form-control" value="<?php echo $designation; ?>" />
+     </div>
+     <label>Enter Score</label>
+      <input type="text" name="score" placeholder="Enter Score" class="form-control" value="<?php echo $score; ?>" />
+     </div>
+
      <div class="form-group" align="center">
       <input type="submit" name="submit" class="btn btn-info" value="Submit" />
      </div>
