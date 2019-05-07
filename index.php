@@ -115,6 +115,7 @@ if(isset($_POST["submit"]))
     .square{width:30px; height:30px; margin:5px;}
     .pad{margin:5px; width:200px; height:60px;}
     .tab{text-align:center; padding-top:12.5px;}
+    .radiomark{width:30px; height:30px; padding-left:8px; padding-top:4px;}
  </style>
 <script>
     function hidecf(){
@@ -127,7 +128,7 @@ if(isset($_POST["submit"]))
     }
 </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How to Store Form data in CSV File using PHP</title>
+  <title>Quiz RACE</title>
   <script src="quiz.js"></script>
  </head>
 <body onload="hidequiz();">
@@ -137,7 +138,7 @@ if(isset($_POST["submit"]))
             <h1>REVA Academy for Corporate Excellence</h1>
             <h2>Go Green and Win</h2>
             <h3><?php echo $error; ?></h3>
-                <form method="post">
+                <form method="post" action="completed.php">
                     <input type="text" name="name" placeholder="Name" class="form-control" value="<?php echo $name; ?>" />
                     <br><br>
                     <input type="text" name="email" placeholder="Email Address" class="form-control" value="<?php echo $email; ?>" />
@@ -263,6 +264,8 @@ if(isset($_POST["submit"]))
         </div>
 
         <div id="submit">
+                
+            <input type="text" name="score" id="b" style="display : none;">
                 <h2>Are You Sure You Want To Submit? You Can't Undo This Step</h2>
                 <div class="row"><div class="tab alert large pad" onclick="showfive();">No, Go Back</div>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -272,11 +275,10 @@ if(isset($_POST["submit"]))
         <div id="result">
             <h2>Here Is Your Result : </h2>
             <h3 id="score"></h3>
-            <input type="text" name="score" id="b" style="display : none;">
-            <input type="submit" name="submit" class="tab primary large pad" value="Close" onclick="window.close();">
+            <input type="submit" name="submit" class="tab primary large pad" value="Finish">
         </div>
 
-    </div>
+</div>
 
                        <br><br>
                 </form>
