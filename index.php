@@ -138,7 +138,7 @@ if(isset($_POST["submit"]))
             <h1>REVA Academy for Corporate Excellence</h1>
             <h2>Go Green and Win</h2>
             <h3><?php echo $error; ?></h3>
-                <form method="post" action="completed.php">
+                <form method="post" id="om">
                     <input type="text" name="name" placeholder="Name" class="form-control" value="<?php echo $name; ?>" />
                     <br><br>
                     <input type="text" name="email" placeholder="Email Address" class="form-control" value="<?php echo $email; ?>" />
@@ -153,7 +153,6 @@ if(isset($_POST["submit"]))
         </div>
         <div id="quiz">
         <div class="col large8 quiz left" align=left>
-        <h1>Questions Related To The Topic : </h1>
         <div id="one">
                 <h3>Q1. What value does sin() function accepts?</h3>
                 <div class="check">
@@ -275,7 +274,7 @@ if(isset($_POST["submit"]))
         <div id="result">
             <h2>Here Is Your Result : </h2>
             <h3 id="score"></h3>
-            <input type="submit" name="submit" class="tab primary large pad" value="Finish">
+            <input id="finish" type="submit" name="submit" class="tab primary large pad" value="Finish">
         </div>
 
 </div>

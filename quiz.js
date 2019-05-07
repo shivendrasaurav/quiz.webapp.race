@@ -207,3 +207,7 @@ function result(){
     var b = document.getElementById("b");
     b.value=sum;
 }
+
+document.getElementById("om").onsubmit = function opencomp(){
+  window.close();
+}
