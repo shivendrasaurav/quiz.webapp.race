@@ -87,8 +87,8 @@ function qone() {
       return;
     }
     // Correct answer
-    if(userAnswer === "Radians") {
-       sum=sum+1;
+    if(userAnswer === "5") {
+       sum=sum+16;
     }
     // incorrect answer
     else {
@@ -113,8 +113,8 @@ function qtwo() {
       return;
     }
     // Correct answer
-    if(userAnswer === "5 and 4") {
-        sum=sum+1;
+    if(userAnswer === "301") {
+        sum=sum+16;
     }
     // incorrect answer
     else {
@@ -139,8 +139,8 @@ function qthree() {
       return;
     }
     // Correct answer
-    if(userAnswer === "4.7 and 3.41") {
-        sum=sum+1;
+    if(userAnswer === "3") {
+        sum=sum+16;
     }
     // incorrect answer
     else {
@@ -165,8 +165,8 @@ function qfour() {
       return;
     }
     // Correct answer
-    if(userAnswer === "math.pi") {
-        sum=sum+1;
+    if(userAnswer === "200") {
+        sum=sum+16;
     }
     // incorrect answer
     else {
@@ -192,8 +192,8 @@ function qfive() {
       return;
     }
     // Correct answer
-    if(userAnswer === "27") {
-        sum=sum+1;
+    if(userAnswer === "37") {
+        sum=sum+16;
     }
     // incorrect answer
     else {
@@ -201,9 +201,10 @@ function qfive() {
     }
 }
 
+
 function result(){
     var a = document.getElementById("score");
-    a.innerHTML="Your Score Is " + sum + " Out Of 5";
+    a.innerHTML="Your Scored " + sum;
     var b = document.getElementById("b");
     b.value=sum;
 }

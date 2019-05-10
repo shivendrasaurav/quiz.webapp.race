@@ -21,31 +21,31 @@ if(isset($_POST["submit"]))
 {
     if(empty($_POST["name"]))
     {
-     $error .= '<p><label class="text-danger">Please Enter your Designation</label></p>';
+     $error .= '<p><label class="alert">Please Enter your Name</label></p>';
     }
     else
     {
      $name = clean_text($_POST["name"]);
      if(!preg_match("/^[a-zA-Z ]*$/",$name))
      {
-      $error .= '<p><label class="text-danger">Only letters and white space allowed</label></p>';
+      $error .= '<p><label class="alert">Only letters and white space allowed</label></p>';
      }
     }
  if(empty($_POST["email"]))
  {
-  $error .= '<p><label class="text-danger">Please Enter your Email</label></p>';
+  $error .= '<p><label class="alert">Please Enter your Email</label></p>';
  }
  else
  {
   $email = clean_text($_POST["email"]);
   if(!filter_var($email, FILTER_VALIDATE_EMAIL))
   {
-   $error .= '<p><label class="text-danger">Invalid email format</label></p>';
+   $error .= '<p><label class="alert">Invalid email format</label></p>';
   }
  }
  if(empty($_POST["contact"]))
  {
-  $error .= '<p><label class="text-danger">Contact number is required</label></p>';
+  $error .= '<p><label class="alert">Contact number is required</label></p>';
  }
  else
  {
@@ -54,7 +54,7 @@ if(isset($_POST["submit"]))
 
  if(empty($_POST["score"]))
  {
-  $error .= '<p><label class="text-danger">Score Is Required</label></p>';
+  $error .= '<p><label class="alert">Answer atleast one question</label></p>';
  }
  else
  {
@@ -63,7 +63,7 @@ if(isset($_POST["submit"]))
 
  if(empty($_POST["organisation"]))
  {
-  $error .= '<p><label class="text-danger">Please enter your Organisation</label></p>';
+  $error .= '<p><label class="alert">Please enter your Organisation</label></p>';
  }
  else
  {
@@ -71,7 +71,7 @@ if(isset($_POST["submit"]))
  }
  if(empty($_POST["designation"]))
  {
-  $error .= '<p><label class="text-danger">Please enter your Organisation</label></p>';
+  $error .= '<p><label class="alert">Please enter your Designation</label></p>';
  }
  else
  {
@@ -96,7 +96,7 @@ if(isset($_POST["submit"]))
    'score' => $score
   );
   fputcsv($file_open, $form_data);
-  $error = '<label class="text-success">Proceeding</label>';
+  $error = '<h3 class="alert">Avoid re-entry, as it will lead to disqualification</h3>';
   $name = '';
   $email = '';
   $contact = '';
@@ -115,7 +115,7 @@ if(isset($_POST["submit"]))
     .square{width:30px; height:30px; margin:5px;}
     .pad{margin:5px; width:200px; height:60px;}
     .tab{text-align:center; padding-top:12.5px;}
-    .radiomark{width:30px; height:30px; padding-left:8px; padding-top:4px;}
+    .radiomark{width:28px; height:28px; padding-left:8px; padding-top:4px;}
  </style>
 <script>
     function hidecf(){
@@ -154,109 +154,115 @@ if(isset($_POST["submit"]))
         <div id="quiz">
         <div class="col large8 quiz left" align=left>
         <div id="one">
-                <h3>Q1. What value does sin() function accepts?</h3>
+                <h3>Q1. What is the minimum number of weighing operations do you need to weight 31 kg of
+                        Rice if you have one kg of weight stone?</h3>
                 <div class="check">
-                        <input type="radio" name="qone" value="Radians" />
-                        <div class="radiomark">X</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Radians
+                        <input type="radio" name="qone" value="5" />
+                        <div class="radiomark"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5
                 </div><br>
                 <div class="check">
-                        <input type="radio" name="qone" value="Scripting" />
-                        <div class="radiomark">X</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Degrees
+                        <input type="radio" name="qone" value="3" />
+                        <div class="radiomark"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3
                 </div><br>
                 <div class="check">
-                        <input type="radio" name="qone" value="Assembly" />
-                        <div class="radiomark">X</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Radians and degrees both
+                        <input type="radio" name="qone" value="7" />
+                        <div class="radiomark"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7
                 </div><br>
                 <div class="check">
-                        <input type="radio" name="qone" value="None" />
-                        <div class="radiomark">X</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Complex numbers
+                        <input type="radio" name="qone" value="9" />
+                        <div class="radiomark"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9
                 </div><br>
                 <div class="primary tab right" onclick="showtwo()">Next</div>
         </div>
 
         <div id="two">
-                <h3>Q2. What’s the correct value for math.ceil(4.279)<br>  and math.floor(4.677)?</h3>
+                <h3>Q2. A man has a certain number of small boxes to pack into parcels. If he packs 3, 4, 5 or
+                        6 in a parcel, he is left with one over; if he packs 7 in a parcel, none is left over. What
+                        is the number of boxes, he may have to pack?</h3>
                 <div class="check">&nbsp;&nbsp;
                         <input type="radio" name="qtwo" value="Programming" />
-                        <div class="radiomark">X</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 and 4
+                        <div class="radiomark"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;106
                 </div><br>
                 <div class="check">&nbsp;&nbsp;
                         <input type="radio" name="qtwo" value="Scripting" />
-                        <div class="radiomark">X</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 and 5
+                        <div class="radiomark"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;309
                 </div><br>
                 <div class="check">&nbsp;&nbsp;
-                        <input type="radio" name="qtwo" value="5 and 4" />
-                        <div class="radiomark">X</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 and 4
+                        <input type="radio" name="qtwo" value="301" />
+                        <div class="radiomark"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;301
                 </div><br>
                 <div class="check">&nbsp;&nbsp;
                         <input type="radio" name="qtwo" value="None" />
-                        <div class="radiomark">X</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 and 5
+                        <div class="radiomark"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;113
                 </div><br>
                 <div class="primary tab left" onclick="showone()">Prev</div>
                 <div class="primary tab right" onclick="showthree()">Next</div>
         </div>
 
         <div id="three">
-                <h3>Q3. The values of math.fabs(-4.7) and math.fabs(3.41) are : </h3>
+                <h3>Q3. What is the smallest number of ducks that could swim in this formation - two ducks in
+                        front of a duck, two ducks behind a duck and a duck between two ducks? </h3>
                 <div class="check">&nbsp;&nbsp;
                         <input type="radio" name="qthree" value="Programming" />
-                        <div class="radiomark">X</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-4.7 and 3.41
+                        <div class="radiomark"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9
                 </div><br>
                 <div class="check">&nbsp;&nbsp;
                         <input type="radio" name="qthree" value="Scripting" />
-                        <div class="radiomark">X</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-4.7 and -3.41
+                        <div class="radiomark"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5
                 </div><br>
                 <div class="check">&nbsp;&nbsp;
                         <input type="radio" name="qthree" value="Assembly" />
-                        <div class="radiomark">X</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.7 and -3.41
+                        <div class="radiomark"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7
                 </div><br>
                 <div class="check">&nbsp;&nbsp;
-                        <input type="radio" name="qthree" value="4.7 and 3.41" />
-                        <div class="radiomark">X</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.7 and 3.41
+                        <input type="radio" name="qthree" value="3" />
+                        <div class="radiomark"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3
                 </div><br>
                 <div class="primary tab left" onclick="showtwo()">Prev</div>
                 <div class="primary tab right" onclick="showfour()">Next</div>
         </div>
 
         <div id="four">
-                <h3>Q4. The constant pie (π) can be used using :</h3>
+                <h3>Q4. If 200 cats kill 200 mice in 200 days, then 8 cats would kill 8 mice in how many days?</h3>
                 <div class="check">&nbsp;&nbsp;
                         <input type="radio" name="qfour" value="Programming" />
-                        <div class="radiomark">X</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;math.pi()
+                        <div class="radiomark"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8 Days
                 </div><br>
                 <div class="check">&nbsp;&nbsp;
                         <input type="radio" name="qfour" value="Scripting" />
-                        <div class="radiomark">X</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;math.pie
+                        <div class="radiomark"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80 Days
                 </div><br>
                 <div class="check">&nbsp;&nbsp;
-                        <input type="radio" name="qfour" value="math.pi" />
-                        <div class="radiomark">X</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;math.pi
+                        <input type="radio" name="qfour" value="200" />
+                        <div class="radiomark"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;200 Days
                 </div><br>
                 <div class="check">&nbsp;&nbsp;
                         <input type="radio" name="qfour" value="None" />
-                        <div class="radiomark">X</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;math.pie()
+                        <div class="radiomark"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;192 Days
                 </div><br>
                 <div class="primary tab left" onclick="showthree();">Prev</div>
                 <div class="primary tab right" onclick="showfive()">Next</div>
         </div>
 
         <div id="five">
-                <h3>Q5. math.pow(3,3) is going to return the value :</h3>
+                <h3>Q5. In an office, if 1 is absent rest of people can be divided into 6 equal parts and if 2 are
+                        absent rest of them are divided into 7 equal parts, how many employees are there in
+                        the office?</h3>
                 <div class="check">&nbsp;&nbsp;
                         <input type="radio" name="qfive" value="-9" />
-                        <div class="radiomark">X</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-9
+                        <div class="radiomark"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;28
                 </div><br>
                 <div class="check">&nbsp;&nbsp;
-                        <input type="radio" name="qfive" value="27" />
-                        <div class="radiomark">X</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;27
+                        <input type="radio" name="qfive" value="37" />
+                        <div class="radiomark"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;37
                 </div><br>
                 <div class="check">&nbsp;&nbsp;
                         <input type="radio" name="qfive" value="-27" />
-                        <div class="radiomark">X</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-27
+                        <div class="radiomark"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;57
                 </div><br>
                 <div class="check">&nbsp;&nbsp;
                         <input type="radio" name="qfive" value="9" />
-                        <div class="radiomark">X</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9
+                        <div class="radiomark"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;19
                 </div><br>
                 <div class="primary tab left" onclick="showfour();">Prev</div>
                 <div class="primary tab right" onclick="showsubmit();">Submit</div>
@@ -303,7 +309,7 @@ if(isset($_POST["submit"]))
                     
                      if(empty($_POST["score"]))
  {
-  $error .= '<p><label class="text-danger">Score Is Required</label></p>';
+  $error .= '<p><label class="alert">Score Is Required</label></p>';
  }
  else
  {
